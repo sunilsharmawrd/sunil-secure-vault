@@ -16,14 +16,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Fix Gradle Memory
-        run: echo "org.gradle.jvmargs=-Xmx2048m" >> gradle.properties
-
       - name: Grant Permission
         run: chmod +x gradlew
 
       - name: Build APK
-        run: ./gradlew assembleDebug --no-daemon --stacktrace
+        run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
