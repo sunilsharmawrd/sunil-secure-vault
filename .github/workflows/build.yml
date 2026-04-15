@@ -15,6 +15,8 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+          - name: Fix Gradle Memory
+  run: echo "org.gradle.jvmargs=-Xmx2048m" >> gradle.properties
 
       - name: Build APK (light)
         run: ./gradlew assembleDebug --no-daemon --stacktrace
